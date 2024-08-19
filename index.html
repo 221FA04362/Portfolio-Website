@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sruthi's Portfolio</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('https://e1.pxfuel.com/desktop-wallpaper/929/26/desktop-wallpaper-aesthetic-tablet-landscape-landscape-purple-aesthetic.jpg'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            color: #171616;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        header {
+            background-color: rgba(255, 192, 203, 0.8); /* Light pink with some transparency */
+            padding: 20px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            top: 0;
+            z-index: 1000;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        nav {
+            background-color: rgba(108, 92, 247, 0.8); /* Purple with some transparency */
+            padding: 15px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            padding: 5px 10px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: lightpink;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto; /* Added margin for spacing */
+            padding: 20px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8); /* White background with some transparency */
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-pic {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin-top: 30px;
+            border: 5px solid #6c5ce7;
+        }
+
+        p {
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .box {
+            max-width: 1200px;
+            margin: 20px auto; /* Added margin for spacing */
+            padding: 30px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8); /* White background with some transparency */
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .box h2 {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px; /* Space for the underline */
+            margin-bottom: 20px; /* Space below the heading */
+            font-size: 2rem; /* Adjust the font size if needed */
+        }
+
+        .box h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            width: 50%;
+            height: 2px; /* Thickness of the underline */
+            background: #6c5ce7; /* Color of the underline */
+            transform: translateX(-50%);
+        }
+
+        .contact-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #6c5ce7;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .contact-btn:hover {
+            background-color: #5a4fcf;
+        }
+
+        .scroll-top {
+            display: inline-block;
+            background-color: #6c5ce7;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            margin-top: 20px;
+        }
+
+        /* Style for Portfolio buttons */
+        .portfolio-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .portfolio-buttons button {
+            padding: 10px 20px;
+            background-color: #6c5ce7;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .portfolio-buttons button:hover {
+            background-color: #5a4fcf;
+        }
+
+        .project-details {
+            display: none;
+            margin-top: 20px;
+            text-align: left;
+        }
+        .Skill-item h3 {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px; /* Space for the underline */
+    margin-bottom: 20px; /* Space below the heading */
+    font-size: 1.5rem; /* Adjust the font size if needed */
+}
+
+.Skill-item h3::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 50%;
+    height: 2px; /* Thickness of the underline */
+    background: #6c5ce7; /* Color of the underline */
+    transform: translateX(-50%);
+}
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>My Portfolio</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home" onclick="showSection('home')">Home</a></li>
+            <li><a href="#about" onclick="showSection('about')">About</a></li>
+            <li><a href="#portfolio" onclick="showSection('portfolio')">Portfolio</a></li>
+            <li><a href="#contact" onclick="showSection('contact')">Contact Me</a></li>
+        </ul>
+    </nav>
+
+    <div id="home" class="container">
+        <img src="https://tse2.mm.bing.net/th?id=OIP.jtRO1wyV6uRKzNK-NIQ97AHaHa&pid=Api&P=0&h=180" alt="Alexa" class="profile-pic">
+        <h2>Hi, I'm Sruthi</h2>
+        <p>Hello, I am Sruthi, a passionate student with a keen interest in computers and technology. I thrive on challenges and constantly set goals for myself to improve and stay on top of the latest industry trends. These challenges help me to improve myself gradually and keep me focused on developing the required skills for the industry.</p>
+        <a href="#contact" class="contact-btn" onclick="showSection('contact')">Contact Me</a>
+    </div>
+
+    <section id="about" class="box">
+        <h2>About Me</h2>
+        <p>Hello! I'm Sruthi Bhavanam. I am currently pursuing my B.Tech in Computer Science at Vignan University.</p>
+        <p>Education: I am in my third year of pursuing a B.Tech in Computer Science at Vignan University. My coursework has provided me with a deep understanding of algorithms, data structures, and software engineering principles.</p>
+        <p>Internship Experience: I recently completed an internship at InternPe. This experience allowed me to apply my knowledge in a real-world setting and collaborate with a team of like-minded individuals.</p>
+        <div class="Skill-item">
+            <h3>Skills:-</h3>
+            <p>My Computer Skills are HTML,CSS,JAVASCRIPT,C,PYTHON,JAVA,MYSQL</p>
+        </div>
+    </section>
+
+    <section id="portfolio" class="box">
+        <h2>Portfolio</h2>
+        
+        <div class="portfolio-buttons">
+            <button onclick="showProject('project1')">Click here to View Project 1</button>
+            <button onclick="showProject('project2')">Click here to View Project 2</button>
+        </div>
+        
+        <div id="project1" class="project-details">
+            <h3>Project 1: First Aid for Critical Situations</h3>
+            <p><strong>Description:</strong> This project is a web-based application designed to provide immediate first aid guidance for various critical situations. The platform offers step-by-step instructions for handling emergencies such as heart attacks, fractures, and other medical crises until professional help arrives.</p>
+            
+            <p><strong>Technologies Used:</strong> HTML, CSS, JavaScript, Bootstrap, Firebase</p>
+            
+            <p><strong>Features:</strong></p>
+            
+            
+                <p>1.Interactive guide for different emergency scenarios</p>
+                <p>2.Search functionality to quickly find the right first aid instructions</p>
+                <p>3.Responsive design for optimal viewing on mobile devices</p>
+                <p>4.Real-time data storage and retrieval using Firebase</p>
+                <p>5.User-friendly interface with visual aids and clear instructions</p>
+            
+        
+            <p><strong>Click here to View Project 1:-</strong> <a href="https://amar3916.github.io/FACS/main.html" target="_blank">View Project</a></p>
+        </div>
+        <div id="project2" class="project-details">
+            <h3>Project 2: Responsive Web Design</h3>
+            <p><strong>Description:-</strong><p>This template is a modern, one-page business website layout featuring a clean design with a focus on large, visually appealing images, smooth gradients, and well-structured content sections. The template is divided into multiple sections, including Introduction, Mission, Services, About Us, and Contact, each designed to showcase company information and services effectively.</p>
+            <p><strong>Technologies Used:</strong> HTML, CSS, JavaScript</p>
+            <p><strong>Features:</strong></p>
+                <p>The HTML code for the website features a responsive navigation bar that adjusts to different screen sizes, ensuring easy access to various sections of the site. The content is organized within elliptical-shaped containers, created using CSS, which adds a visually appealing design element. The template includes a contact form, allowing users to submit their name, email, subject, and message directly through the website. Additionally, the footer section at the bottom provides company information and a copyright notice, maintaining a consistent branding presence throughout the site. The overall layout is structured for clarity and ease of use, utilizing Bootstrap for responsiveness and clean design aesthetics.</p>
+            <center><h3>This is my Second Project.I did it in 3rd year</h3></center>
+            <center><img src="pro.jpg" height="30%" width="30%"></p></center>
+        </div>
+    </section>
+
+    <section id="contact" class="box">
+        <h2>Contact Me</h2>
+        <p>I’d love to hear from you! Whether you have a question, want to discuss a potential project, or just want to say hello, feel free to get in touch with me through any of the channels below.</p>
+        <p>Get in Touch</p>
+        <p>Phone: 6303689791</p>
+        <p>Email: <a href="mailto:sruthibhavanam2005@gmail.com">sruthibhavanam2005@gmail.com</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/sruthi-bhavanam-85627630a/" target="_blank">linkedin.com/in/sruthibhavanam</a></p>
+        <p>GitHub: <a href="https://github.com/221FA04362">github.com/221FA04362</a></p>
+        <a href="#home" class="scroll-top" onclick="showSection('home')">Scroll to Top</a>
+    </section>
+
+    <script>
+        function showSection(sectionId) {
+            if (sectionId === 'home') {
+                // Show all sections
+                document.querySelectorAll('.box').forEach(section => {
+                    section.style.display = 'block';
+                });
+            } else {
+                // Hide all sections
+                document.querySelectorAll('.box').forEach(section => {
+                    section.style.display = 'none';
+                });
+
+                // Show the selected section
+                document.getElementById(sectionId).style.display = 'block';
+            }
+        }
+
+        function showProject(projectId) {
+            // Hide all project details
+            document.querySelectorAll('.project-details').forEach(project => {
+                project.style.display = 'none';
+            });
+
+            // Show the selected project details
+            document.getElementById(projectId).style.display = 'block';
+        }
+    </script>
+  <footer style="background-color: rgba(108, 92, 247, 0.8); color: #fff; text-align: center; padding: 20px 0; margin-top: 20px; box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);">
+    <p>&copy; 2024 My Portfolio. All rights reserved.</p>
+</footer>
+
+</body>
+
+</html>
